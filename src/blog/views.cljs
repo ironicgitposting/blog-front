@@ -11,8 +11,7 @@
 
 
 (def base-theme (createTheme (js-obj "palette" 
-                                     (js-obj "mode" "dark"
-                                             "background" (js-obj "default" "#222222")))))
+                                     (js-obj "mode" "dark"))))
 
 (defn home-panel []
   (let [name (re-frame/subscribe [::subs/name])]
@@ -41,8 +40,7 @@
 ;; main
 (defn main-panel [] 
   (let [active-panel (re-frame/subscribe [::subs/active-panel])]
-    [:<>
-    
+    [:<>    
      [:> ThemeProvider {:theme base-theme}
       [:> CssBaseline]
       [appbar-component]

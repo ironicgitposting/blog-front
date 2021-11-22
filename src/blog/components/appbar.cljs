@@ -7,8 +7,8 @@
   [:> AppBar {:position "static"
               :color "primary"}
    [:> ToolBar
-    [:> Typography {:variant "h6" 
-                   :component "div" 
-                   } 
+    [:> Typography {:variant "h6"
+                    :component "div"
+                    :sx (js-obj "flexGrow" 1)} 
     "Home"]]])
 
