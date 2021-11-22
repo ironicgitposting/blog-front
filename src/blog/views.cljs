@@ -4,8 +4,8 @@
    [blog.events :as events]
    [blog.routes :as routes]
    [blog.subs :as subs]
-   [blog.components.appbar :refer [appbar-component]]
-   ["@mui/material/CssBaseline" :default CssBaseline] 
+   [blog.components.appbar :refer [appbar-component]]  
+   ["@mui/material/CssBaseline" :default CssBaseline]
    ["@mui/material/styles" :refer [ThemeProvider, createTheme]]
    ["@mui/material/Container" :default Container]))
 
@@ -44,5 +44,5 @@
      [:> ThemeProvider {:theme base-theme}
       [:> CssBaseline]
       [appbar-component]
-      [:> Container
+      [:> Container      
        [:div (routes/panels @active-panel)]]]]))
