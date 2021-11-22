@@ -4,12 +4,15 @@
    [blog.events :as events]
    [blog.routes :as routes]
    [blog.subs :as subs]
-   ))
+   [blog.components.appbar :refer [appbar-component]]
+   ["@mui/material/CssBaseline" :default CssBaseline] 
+   ["@mui/material/styles" :refer [ThemeProvider, createTheme]]
+   ["@mui/material/Container" :default Container]))
 
 
-;; (def base-theme (createMuiTheme (clj->js {:palette #js {:primary {:main "red"}}})))
-
-;; home
+(def base-theme (createTheme (js-obj "palette" 
+                                     (js-obj "mode" "dark"
+                                             "background" (js-obj "default" "#222222")))))
 
 (defn home-panel []
   (let [name (re-frame/subscribe [::subs/name])]
@@ -38,5 +41,10 @@
 ;; main
 (defn main-panel [] 
   (let [active-panel (re-frame/subscribe [::subs/active-panel])]
-    [:div "this is on every page"
-     [:div (routes/panels @active-panel)]]))
+    [:<>
+    
+     [:> ThemeProvider {:theme base-theme}
+      [:> CssBaseline]
+      [appbar-component]
+      [:> Container
+       [:div (routes/panels @active-panel)]]]]))
