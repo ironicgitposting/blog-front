@@ -18,7 +18,7 @@
                       :component "div"
                       :sx (js-obj "flexGrow" 1)
                       :on-click #(re-frame/dispatch [::events/navigate :home])}
-       "Patrick Richard"]
+       "(0x706174)"]
 
       [:> Button {:color (if (= @active-panel :home-panel) "secondary" "inherit")
                   :size "large"

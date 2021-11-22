@@ -11,7 +11,7 @@
      [:> Typography {:variant "p"
                      :fontSize 18}
       "Hi I am Patrick and I am a Software Engineer working full-time in France. 
-      I come from a remote french island in the middle of the Indian Ocean known as Réunion island."]
+      I come from a french remote island in the middle of the Indian Ocean known as Réunion island."]
 
      [:> Typography {:variant "p"
                      :fontSize 18}
@@ -26,9 +26,9 @@
 
      [:> Typography {:variant "p"
                      :fontSize 18}
-      "My current passions include functional programming, cybersecurity and language learning. I am still waiting for my first Clojure gig and I am currently working toward 
-       moving to Japan in the upcoming year."]
+      "My current passions include geopolitics, cybersecurity and anything that will hold my attention this week. I am currently working toward 
+       moving to Japan in the upcoming year. When I get settled there I plan to take the OSCP and OSED exams as soon as possible."]
 
      [:> Typography {:variant "p"
                      :fontSize 18}
-      "When I am not coding, I am either in nature or hacking the gibson at HtB."]]]])
+      "When I am not coding I am either in nature or watching Pekora streams."]]]])
