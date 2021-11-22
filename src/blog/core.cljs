@@ -5,8 +5,7 @@
    [blog.events :as events]
    [blog.routes :as routes]
    [blog.views :as views]
-   [blog.config :as config]
-   ))
+   [blog.config :as config]))
 
 
 (defn dev-setup []
@@ -15,7 +14,7 @@
 
 (defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)
-  (let [root-el (.getElementById js/document "app")]    
+  (let [root-el (.getElementById js/document "app")]
     (rdom/unmount-component-at-node root-el)
     (rdom/render [views/main-panel] root-el)))
 
