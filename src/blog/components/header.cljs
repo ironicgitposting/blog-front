@@ -20,7 +20,7 @@
                       :on-click #(re-frame/dispatch [::events/navigate :home])}
        "(0x706174)"]
 
-      [:> Button {:color (if (= @active-panel :home-panel) "secondary" "inherit")
+      [:> Button {:color (if (= @active-panel :blog-panel) "secondary" "inherit")
                   :size "large"
                   :on-click #(re-frame/dispatch [::events/navigate :blog])} "Blog"]
 

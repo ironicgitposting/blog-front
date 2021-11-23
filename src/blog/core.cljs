@@ -7,7 +7,6 @@
    [blog.views :as views]
    [blog.config :as config]))
 
-
 (defn dev-setup []
   (when config/debug?
     (println "dev mode")))

@@ -7,6 +7,8 @@
    [blog.components.footer :refer [footer-component]]
    [blog.components.header :refer [header-component]]
    [blog.components.about :refer [about-panel]]
+   [blog.components.blog :refer [blog-panel]]
+   [blog.components.gallery :refer [gallery-panel]]
    ["@mui/material/CssBaseline" :default CssBaseline]
    ["@mui/material/styles" :refer [ThemeProvider, createTheme]]
    ["@mui/material/Container" :default Container]))
@@ -21,7 +23,7 @@
                                                                  "main" "#f44336"
                                                                  "dark" "#ba000d"
                                                                  "contrastText" "#000")
-                                             "mode" "dark"))))
+                                             "mode" "light"))))
 
 (defn home-panel []
   (let [name (re-frame/subscribe [::subs/name])]
@@ -36,6 +38,10 @@
 (defmethod routes/panels :home-panel [] [home-panel])
 
 (defmethod routes/panels :about-panel [] [about-panel])
+
+(defmethod routes/panels :blog-panel [] [blog-panel])
+
+(defmethod routes/panels :gallery-panel [] [gallery-panel])
 ;; main
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [::subs/active-panel])]
@@ -43,6 +49,6 @@
      [:> ThemeProvider {:theme base-theme}
       [:> CssBaseline]
       [header-component]
-      [:> Container {:maxWidth "md"}
+      [:> Container {:maxWidth (if (not (= @active-panel :blog-panel)) "md" "lg")}
        [:div (routes/panels @active-panel)]]
       [footer-component]]]))
