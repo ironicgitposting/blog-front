@@ -8,6 +8,7 @@
 (defn create-article-component [])
 
 (defn blog-panel []
-  [:div 
+  
+  [:> Grid {:container true :mt 5 :spacing 4} 
    [textarea]
    [preview]])

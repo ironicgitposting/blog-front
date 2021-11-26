@@ -1,9 +1,13 @@
 (ns blog.components.editor
     (:require [reagent.core :refer [atom]]
-            ["react-markdown" :default ReactMarkdown]))
+              ["@mui/material/Grid" :default Grid]
+              ["@mui/material/TextField" :default TextField]
+              ["@mui/material/Button" :default Button]
+              ["@mui/material/Stack" :default Stack]
+              ["react-markdown" :default ReactMarkdown]))
 
 (def inital-value
-  "### Write some shit TIA.")
+  "# Write some shit TIA.")
 
 (defonce editor-state (atom {:value inital-value}))
 
@@ -17,16 +21,24 @@
 
 (defn textarea []
   (let [text (:value @editor-state)]
-    [:div
-     [:textarea
-      {
-       :placeholder text
-       :value text
-       :on-focus #(clear-textarea %)
-       :on-change #(update-preview %)
-      }]]))
+    [:> Grid {:item true :xs 6}
+     [:div
+      [:> TextField
+       {:multiline true
+        :rows 4
+        :fullWidth  true
+        :placeholder inital-value
+        :value (if (nil? text) "" text)
+       ;:on-focus 
+        :on-change #(update-preview %)}]
+      [:> Stack {:direction "row" :spacing 2 :mt 1}
+        [:> Button {:variant "contained"} "Create Article"]
+       [:> Button {:variant "outlined" :on-click #(clear-textarea %) } "Cancel"]]
+     ]]))
 
 (defn preview
   []
-  [:div 
-   [:> ReactMarkdown {:children (:value @editor-state)}]])
+  (print (:value @editor-state))
+  [:> Grid {:item true :xs 6}
+   [:div
+    [:> ReactMarkdown {:children (:value @editor-state)}]]])
