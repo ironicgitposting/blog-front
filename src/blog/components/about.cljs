@@ -26,7 +26,7 @@
 
      [:> Typography {:variant "p"
                      :fontSize 18}
-      "My current passions include geopolitics, cybersecurity and anything that will hold my attention this week. I am currently working toward 
+      "My current passions include geopolitics, cybersecurity, 3D sculpting and anything that will hold my attention this week. I am currently working toward 
        moving to Japan in the upcoming year. When I get settled there I plan to take the OSCP and OSED exams as soon as possible."]
 
      [:> Typography {:variant "p"
