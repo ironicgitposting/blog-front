@@ -30,4 +30,8 @@
 
       [:> Button {:color (if (= @active-panel :about-panel) "secondary" "inherit")
                   :size "large"
-                  :on-click #(re-frame/dispatch [::events/navigate :about])} "About"]]]))
+                  :on-click #(re-frame/dispatch [::events/navigate :about])} "About"]
+      
+      [:> Button {:color (if (= @active-panel :resume-panel) "secondary" "inherit")
+                  :size "large"
+                  :on-click #(re-frame/dispatch [::events/navigate :about])} "Resume"]]]))

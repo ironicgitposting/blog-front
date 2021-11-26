@@ -17,20 +17,20 @@
 (def base-theme (createTheme (js-obj "palette"
                                      (js-obj "primary" (js-obj "light" "#757ce8"
                                                                "main" "#3f50b5"
-                                                               "dark" "#002884"
+                                                               "dark" "#ff0000"
                                                                "contrastText" "#fff")
                                              "secondary" (js-obj "light" "#ff7961"
                                                                  "main" "#f44336"
                                                                  "dark" "#ba000d"
                                                                  "contrastText" "#000")
-                                             "mode" "light"))))
+                                             "mode" "dark"))))
 
 (defn home-panel []
   (let [name (re-frame/subscribe [::subs/name])]
+    (js-debugger)
     [:div
      [:h1
-      (str "Hello from " @name ". This is the Home Page.")]
-
+      (str "Hello from " @name ". This is the Home Page.")]     
      [:div
       [:a {:on-click #(re-frame/dispatch [::events/navigate :about])}
        "go to About Page"]]]))
